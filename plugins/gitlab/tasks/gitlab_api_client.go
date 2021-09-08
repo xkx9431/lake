@@ -113,7 +113,8 @@ func (gitlabApiClient *GitlabApiClient) FetchWithPaginationAnts(resourceUri stri
 
 	// not all api return x-total header, use step concurrency
 	if total == -1 {
-		conc := 10
+		// Since the rate limit would put us at the max, we want to offset it to not hit the limit
+		conc := rateLimitPerSecond - 2 // approx: 25
 		step := 0
 		c := make(chan bool)
 		for {
