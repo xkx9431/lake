@@ -103,7 +103,6 @@ func (plugin JiraDomain) Execute(options map[string]interface{}, progress chan<-
 
 	progress <- 1
 	logger.Print("end JiraDomain plugin execution")
-	close(progress)
 	return nil
 }
 

@@ -98,7 +98,6 @@ func (plugin Gitlab) Execute(options map[string]interface{}, progress chan<- flo
 		tasks.CollectChildrenOnPipelines(projectIdInt, scheduler)
 	}
 	progress <- 1
-	close(progress)
 	return nil
 }
 

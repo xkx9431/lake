@@ -63,7 +63,6 @@ func (plugin JenkinsDomain) Execute(
 	}
 	progress <- 1
 	logger.Print("end JenkinsDomain plugin execution")
-	close(progress)
 	return nil
 }
 

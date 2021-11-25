@@ -84,7 +84,6 @@ func (plugin GithubDomain) Execute(options map[string]interface{}, progress chan
 	}
 	progress <- 1
 	logger.Print("end GithubDomain plugin execution")
-	close(progress)
 	return nil
 }
 

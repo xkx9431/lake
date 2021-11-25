@@ -167,7 +167,6 @@ func (plugin Jira) Execute(options map[string]interface{}, progress chan<- float
 		setBoardProgress(i, 1.0)
 	}
 	logger.Print("end jira plugin execution")
-	close(progress)
 	return nil
 }
 
