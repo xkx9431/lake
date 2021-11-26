@@ -246,7 +246,7 @@ pipeline_new() {
 }
 
 pipelines() {
-    curl -v $LAKE_PIPELINE_URL | jq
+    curl -v $LAKE_PIPELINE_URL'?'$1 | jq
 }
 
 pipeline() {
@@ -341,10 +341,6 @@ truncate() {
     echo "SET FOREIGN_KEY_CHECKS=0;"
     echo 'show tables' | mycli local-lake | tail -n +2 | xargs -I{} -n 1 echo "truncate table {};"
     echo "SET FOREIGN_KEY_CHECKS=1;"
-}
-
-pipelines() {
-    curl -v $LAKE_PIPELINE_URL?status=$1 | jq
 }
 
 jiradomain() {
